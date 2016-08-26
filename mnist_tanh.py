@@ -53,11 +53,11 @@ if __name__ == '__main__':
     W1_history = []
     W2_history = []
     cpr_history = []
-    for loop in range(400):
+    for loop in range(100):
         for i in tqdm(range(n_training_data)):
             # Store W1 and W2 history
-            W1_history.append(np.linalg.norm(layer1._W))
-            W2_history.append(np.linalg.norm(layer2._W))
+            W1_history.append(np.average(np.abs(layer1._W)))
+            W2_history.append(np.average(np.abs(layer2._W)))
 
             # FP
             x = train_img[i].reshape(len(train_img[i]), 1)
